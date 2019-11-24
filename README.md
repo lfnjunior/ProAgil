@@ -4,11 +4,11 @@
 
 - Clone the repository:
 ```
- git clone https://github.com/lfnjunior/API.NET_Core3.0.git
+ git clone https://github.com/lfnjunior/DotnetCore3.0API.git
 ```
 - Change to project directory
 ```
-cd API.NET_Core3.0/
+cd DotnetCore3.0API/
 ```
 - Restore bin & obj folders
 ```
