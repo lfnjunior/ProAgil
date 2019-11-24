@@ -6,6 +6,10 @@
 ```
  git clone https://github.com/lfnjunior/DotnetCore3.0API.git
 ```
+
+######
+### Server:
+
 - Change to project directory
 ```
 cd DotnetCore3.0API/
@@ -14,9 +18,28 @@ cd DotnetCore3.0API/
 ```
 dotnet restore
 ```
+- Run the api :
+```
+ dotnet run
+```
+
+######
+### Client:
+
+- Change to Angular project directory
+```
+cd ..
+```
+```
+cd ProAgil-App/
+```
+- Install dependencies to Angular Project
+```
+npm i
+```
 - Run the console app :
 ```
- dotnet run --project ProAgil.API/
+ ng run
 ```
 
 ## Acquired knowledge:
@@ -28,3 +51,11 @@ dotnet restore
 - [X] Sqlite
 - [X] Nuget Packet Maneger
 - [X] Async and Await Methods
+
+######
+
+- [X] Angular Framework
+- [X] How install and configure a Angular App
+- [X] How Create a component
+- [X] How Consume API Rest, using HttpClient by angular
+- [X] Bootstrap and Font Awesome and to import then in App
