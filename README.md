@@ -4,7 +4,7 @@
 
 - Clone the repository:
 ```
- git clone https://github.com/lfnjunior/DotnetCore3.0API.git
+ git clone https://github.com/lfnjunior/ProAgil-Eventos.git
 ```
 
 ######
@@ -12,7 +12,7 @@
 
 - Change to project directory
 ```
-cd DotnetCore3.0API/
+cd ProAgil-Eventos/
 ```
 - Restore bin & obj folders
 ```
