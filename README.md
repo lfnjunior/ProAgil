@@ -44,6 +44,8 @@ npm i
 
 ## Acquired knowledge:
 
+###### .NET Core 3.0
+
 - [X] Dependency Injection
 - [X] Midleware
 - [X] HttpMethod (GET)
@@ -52,7 +54,7 @@ npm i
 - [X] Nuget Packet Maneger
 - [X] Async and Await Methods
 
-######
+###### Angular 8
 
 - [X] Angular Framework
 - [X] How install and configure a Angular App
