@@ -1,4 +1,4 @@
-# Introduction to Dotnet Core 3.0 Rest API
+# Dotnet Core 3.0 Rest API & Angular 8
 
 ## Test The Application:
 
