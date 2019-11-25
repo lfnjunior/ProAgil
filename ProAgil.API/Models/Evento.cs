@@ -3,6 +3,7 @@ namespace ProAgil.API.Models
     public class Evento
     {
         public int eventoId { get; set; }
+        public string imagemUrl { get; set; }
         public string local { get; set; }
         public string dataDoEvento { get; set; }
         public string tema { get; set; }

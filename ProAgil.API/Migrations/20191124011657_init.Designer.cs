@@ -26,6 +26,9 @@ namespace ProAgil.API.Migrations
                     b.Property<string>("dataDoEvento")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("imagemUrl")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("local")
                         .HasColumnType("TEXT");
 

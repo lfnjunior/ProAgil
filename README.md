@@ -31,7 +31,7 @@ dotnet restore
 cd ..
 ```
 ```
-cd ProAgil-App/
+cd ProAgil.App/
 ```
 - Install dependencies to Angular Project
 ```
@@ -59,3 +59,7 @@ npm i
 - [X] How Create a component
 - [X] How Consume API Rest, using HttpClient by angular
 - [X] Bootstrap and Font Awesome and to import then in App
+- [X] Template Syntax - Property Binding & The pipe operator (|)
+- [X] Structural Directives -> *ngIf *ngFor
+- [X] Interpolation {{...}}
+- [X] Two-way data binding || [( )] = BANANA IN A BOX
