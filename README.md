@@ -1,10 +1,10 @@
-# Introduction to Dotnet Core 3.0 Rest API
+# Dotnet Core 3.0 Rest API & Angular 8
 
 ## Test The Application:
 
 - Clone the repository:
 ```
- git clone https://github.com/lfnjunior/DotnetCore3.0API.git
+ git clone https://github.com/lfnjunior/ProAgil-Eventos.git
 ```
 
 ######
@@ -12,7 +12,7 @@
 
 - Change to project directory
 ```
-cd DotnetCore3.0API/
+cd ProAgil-Eventos/
 ```
 - Restore bin & obj folders
 ```
@@ -44,6 +44,8 @@ npm i
 
 ## Acquired knowledge:
 
+###### .NET Core 3.0
+
 - [X] Dependency Injection
 - [X] Midleware
 - [X] HttpMethod (GET)
@@ -52,7 +54,7 @@ npm i
 - [X] Nuget Packet Maneger
 - [X] Async and Await Methods
 
-######
+###### Angular 8
 
 - [X] Angular Framework
 - [X] How install and configure a Angular App
