@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ProAgil-App:build"
+            "browserTarget": "ProAgil.App:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ProAgil-App:build:production"
+              "browserTarget": "ProAgil.App:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ProAgil-App:build"
+            "browserTarget": "ProAgil.App:build"
           }
         },
         "test": {
@@ -115,11 +115,11 @@
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ProAgil-App:serve:production"
+              "devServerTarget": "ProAgil.App:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "ProAgil-App"
+  "defaultProject": "ProAgil.App"
 }
