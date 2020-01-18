@@ -15,47 +15,79 @@
       <tr>
         <th scope="col">
           <button class="btn btn-outline-info"
-                  (click)="alternarImagem()">
-                  Imagem
-          </button>
-        </th>
-        <th scope="col">#</th>
-        <th scope="col">Tema</th>
-        <th scope="col">Local</th>
-        <th scope="col">Data</th>
-        <th scope="col">Qtde. Pessoas</th>
-        <th scope="col">Lote</th>
-        <th scope="col">Opções</th>
-      </tr>
-    </thead>
-    <tbody *ngIf="eventos && eventos.length">
-      <tr *ngFor="let evento of eventosFiltrados">
-        <td>
-          <img *ngIf="mostrarImagem"
-               src="http://localhost:5000/img/{{evento.imagemUrl}}"
-               [style.width.px]="imagemLargura"
-               [style.margin.px]="imagemMargem">
-        </td>
-        <th scope="row">{{evento.eventoId}}</th>
-        <td>{{evento.tema}}</td>
-        <td>{{evento.local | uppercase}}</td>
-        <td>{{evento.dataDoEvento}}</td>
-        <td>{{evento.quantidadeDePessoas}}</td>
-        <td>{{evento.lote}}</td>
-        <td>
-          <button class="btn btn-success">editar</button>
-          <button class="btn btn-danger">deletar</button>
-        </td>
-      </tr>
-    </tbody>
-    <tfoot  *ngIf="!eventos.length">
-      <tr> 
-        <td colspan="7" class="text-center">
-          <h3 >
-            Nenhum evento foi encontrado
-          </h3>
-        </td>
-      </tr>
-    </tfoot>
-  </table>
+          (click)="alternarImagem()">
+          <i class="{{!mostrarImagem ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+        </button>
+      </th>
+      <th scope="col">#</th>
+      <th scope="col">Tema</th>
+      <th scope="col">Local</th>
+      <th scope="col">Data</th>
+      <th scope="col">Qtde. Pessoas</th>
+      <th scope="col">Lote</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="eventos && this.eventos.length > 0">
+    <tr *ngFor="let evento of eventosFiltrados">
+      <td>
+        <img *ngIf="mostrarImagem"
+        src="http://localhost:5000/img/{{evento.imagemUrl}}"
+        [style.width.px]="imagemLargura"
+        [style.margin.px]="imagemMargem">
+      </td>
+      <th scope="row">{{evento.id}}</th>
+      <td>{{evento.tema}}</td>
+      <td>{{evento.local | uppercase}}</td>
+      <td>{{evento.dataDoEvento | DatetimeFormatPipe}}</td>
+      <td>{{evento.quantidadeDePessoas}}</td>
+      <td>
+        <div *ngIf="evento.lotes && this.evento.lotes.length > 0">
+          <div *ngFor="let lote of evento.lotes">
+            {{lote.nome}}
+          </div>
+        </div>
+        <div *ngIf="evento.lotes && this.evento.lotes.length == 0">
+          Não informado
+        </div>
+      </td>
+      <td>
+        <div class="btn-group">
+          <button 
+          class="btn btn-sm btn-success " 
+          tooltip="Editar"
+          (click)="openModal(template)">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button 
+        class="btn btn-sm btn-danger" 
+        tooltip="Excluir">
+        <i class="fa fa-eraser"></i>
+      </button>
+    </div>
+  </td>
+</tr>
+</tbody>
+<tfoot  *ngIf="eventos && this.eventos.length == 0">
+  <tr> 
+    <td colspan="7" class="text-center">
+      <h3 >
+        Nenhum evento foi encontrado
+      </h3>
+    </td>
+  </tr>
+</tfoot>
+</table>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" 
+    aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  This is a modal.
+</div>
+</ng-template>
 </div>

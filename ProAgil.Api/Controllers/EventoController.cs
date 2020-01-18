@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using ProAgil.Domain;
 using ProAgil.Repository;
 using System.Threading.Tasks;
+using System;
 
 namespace ProAgil.API.Controllers
 {
@@ -109,7 +109,7 @@ namespace ProAgil.API.Controllers
             return BadRequest("");
         }
 
-        [HttpDelete]
+        [HttpDelete("{EventoId}")]
         public async Task<IActionResult> Delete(int EventoId)
         {
             try 

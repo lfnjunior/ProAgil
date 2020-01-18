@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 
+using System;
+
 namespace ProAgil.Domain
 {
     public class Evento
@@ -7,7 +9,7 @@ namespace ProAgil.Domain
         public int Id { get; set; }
         public string ImagemUrl { get; set; }
         public string Local { get; set; }
-        public string DataDoEvento { get; set; }
+        public DateTime DataDoEvento { get; set; }
         public string Tema { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
