@@ -1,7 +1,13 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { EventoService } from '../_services/Evento.service';
 import { Evento } from '../_models/Evento';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { BsModalService } from 'ngx-bootstrap';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { defineLocale, BsLocaleService, ptBrLocale } from 'ngx-bootstrap';
+
+Continuar na aula 76
+
+defineLocale('pt-br', ptBrLocale);
 
 @Component({
   selector: 'app-eventos',
@@ -10,21 +16,26 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 })
 
 export class EventosComponent implements OnInit {
-
   eventosFiltrados: Evento[];
   eventos: Evento[];
+  evento: Evento;
   imagemLargura = 50;
   imagemMargem = 2;
   mostrarImagem = false;
-  modalRef: BsModalRef;
   filtroLista: string;
+  registerForm: FormGroup;
 
   constructor(
     private eventoService: EventoService,
-    private modalService: BsModalService
-  ) { }
+    private modalService: BsModalService,
+    private fb: FormBuilder,
+    private localeService: BsLocaleService
+  ) {
+    this.localeService.use('pt-br');
+  }
 
   ngOnInit() {
+    this.validation();
     this.getEventos();
   }
 
@@ -59,8 +70,60 @@ export class EventosComponent implements OnInit {
     );
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+  openModal(template: any) {
+    this.registerForm.reset();
+    template.show();
+  }
+
+  salvarAlteracoes(template: any) {
+    if (this.registerForm.valid) {
+      this.evento = Object.assign({}, this.registerForm.value);
+      this.eventoService.postEvento(this.evento).subscribe(
+        (novoEvento: Evento) => {
+          console.log(novoEvento);
+          template.hide();
+          this.getEventos();
+        }, error => {
+          console.log(error);
+        }
+      );
+    }
+  }
+
+  validation() {
+    this.registerForm = this.fb.group({
+      local: ['',
+        Validators.required
+      ],
+      dataDoEvento: ['',
+        Validators.required
+      ],
+      imagemUrl: ['',
+        Validators.required
+      ],
+      telefone: ['',
+        Validators.required
+      ],
+      tema: ['',
+        [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(50),
+        ]
+      ],
+      email: ['',
+        [
+          Validators.required,
+          Validators.email,
+        ]
+      ],
+      quantidadeDePessoas: ['',
+        [
+          Validators.required,
+          Validators.max(12000),
+        ]
+      ],
+    });
   }
 
 }
