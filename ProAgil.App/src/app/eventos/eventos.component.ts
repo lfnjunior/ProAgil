@@ -5,8 +5,6 @@ import { BsModalService } from 'ngx-bootstrap';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { defineLocale, BsLocaleService, ptBrLocale } from 'ngx-bootstrap';
 
-Continuar na aula 76
-
 defineLocale('pt-br', ptBrLocale);
 
 @Component({
@@ -24,6 +22,8 @@ export class EventosComponent implements OnInit {
   mostrarImagem = false;
   filtroLista: string;
   registerForm: FormGroup;
+  modoSalvar = 'post';
+  deletarEvento = '';
 
   constructor(
     private eventoService: EventoService,
@@ -75,19 +75,62 @@ export class EventosComponent implements OnInit {
     template.show();
   }
 
+  editarEvento(evento: Evento, template: any) {
+    this.modoSalvar = 'put';
+    this.openModal(template);
+    this.evento = evento;
+    this.registerForm.patchValue(evento);
+  }
+
+  novoEvento(template: any) {
+    this.modoSalvar = 'post';
+    this.openModal(template);
+  }
+
   salvarAlteracoes(template: any) {
     if (this.registerForm.valid) {
-      this.evento = Object.assign({}, this.registerForm.value);
-      this.eventoService.postEvento(this.evento).subscribe(
-        (novoEvento: Evento) => {
-          console.log(novoEvento);
+      if (this.modoSalvar === 'post') {
+        this.evento = Object.assign({}, this.registerForm.value);
+        this.eventoService.postEvento(this.evento).subscribe(
+          (novoEvento: Evento) => {
+            console.log(novoEvento);
+            template.hide();
+            this.getEventos();
+          }, error => {
+            console.log(error);
+          }
+        );
+      } else {
+        this.evento = Object.assign({id: this.evento.id}, this.registerForm.value);
+        this.eventoService.putEvento(this.evento).subscribe(
+          (eventoAtualizado: Evento) => {
+            console.log('Evento Atualizado:');
+            console.log(eventoAtualizado);
+            template.hide();
+            this.getEventos();
+          }, error => {
+            console.log(error);
+          }
+        );
+      }
+    }
+  }
+
+  excluirEvento(evento: Evento, template: any) {
+    this.openModal(template);
+    this.evento = evento;
+    this.deletarEvento = `Tem certeza que deseja excluir o Evento: ${evento.tema}, Código: ${evento.id}`;
+  }
+
+  confirmeDelete(template: any) {
+    this.eventoService.deleteEvento(this.evento.id).subscribe(
+      () => {
           template.hide();
           this.getEventos();
         }, error => {
           console.log(error);
         }
-      );
-    }
+    );
   }
 
   validation() {
