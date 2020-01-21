@@ -19,10 +19,10 @@ namespace ProAgil.Api.Dtos
         public int quantidadeDePessoas { get; set; }
         public string ImagemURL { get; set; }
 
-        [Phone]
+        [Phone (ErrorMessage="Deve ser um telefone válido")]
         public string Telefone { get; set; }
         
-        [EmailAddress]
+        [EmailAddress (ErrorMessage="Deve ser um e-mail válido")]
         public string Email { get; set; }
         public List<LoteDto> Lotes { get; set; }
         public List<RedeSocialDto> RedesSociais { get; set; }

@@ -48,7 +48,7 @@ namespace ProAgil.Repository
             }
             
             query = query.AsNoTracking()
-                         .OrderByDescending(c => c.DataDoEvento);
+                         .OrderBy(c => c.Id);
 
             return await query.ToArrayAsync();
         }
