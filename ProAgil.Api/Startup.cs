@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,7 @@ namespace ProAgil.API
             );
             services.AddScoped<IProAgilRepository, ProAgilRepository>();
             services.AddControllers();
+            services.AddAutoMapper();    
             services.AddCors();
         }
 

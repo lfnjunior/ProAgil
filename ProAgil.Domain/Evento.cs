@@ -5,7 +5,7 @@ using System;
 namespace ProAgil.Domain
 {
     public class Evento
-    {
+    { 
         public int Id { get; set; }
         public string ImagemUrl { get; set; }
         public string Local { get; set; }
