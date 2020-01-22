@@ -17,7 +17,7 @@ namespace ProAgil.Api.Dtos
         
         [Range(2, 120000, ErrorMessage="Quatidade de Pessoas é entre 2 e 120000")]
         public int quantidadeDePessoas { get; set; }
-        public string ImagemURL { get; set; }
+        public string ImagemUrl { get; set; }
 
         [Phone (ErrorMessage="Deve ser um telefone válido")]
         public string Telefone { get; set; }

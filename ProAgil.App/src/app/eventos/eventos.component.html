@@ -1,3 +1,4 @@
+<app-titulo [titulo]="titulo"></app-titulo>
 <div class="d-flex">
   <div class="form-inline mr-auto">
     <div class="form-group mb-2"> 
@@ -50,7 +51,7 @@
         <th scope="row">{{evento.id}}</th>
         <td>{{evento.tema}}</td>
         <td>{{evento.local | uppercase}}</td>
-        <td>{{evento.dataDoEvento | DatetimeFormatPipe}}</td>
+        <td>{{evento.dataDoEvento | DateTimeFormatPipe}}</td>
         <td>{{evento.quantidadeDePessoas}}</td>
         <td>
           <div *ngIf="evento.lotes && this.evento.lotes.length > 0">
@@ -192,6 +193,8 @@
                   Data e Hora
                 </label>
                 <input bsDatepicker
+                       value="{{dataDoEvento | DateTimeFormatPipe}}"
+                       [(ngModel)]="dataDoEvento"
                        [bsConfig]="{dateInputFormat : 'DD/MM/YYYY hh:mm a' }"
                        [ngClass]="{'is-invalid': registerForm.get('dataDoEvento').errors  && registerForm.get('dataDoEvento').touched}" 
                        type="text" 
