@@ -3,8 +3,9 @@
     <ProjectReference Include="..\ProAgil.Domain\ProAgil.Domain.csproj"/>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.1"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.0.1"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.2"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.0.2"/>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.2"/>
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
