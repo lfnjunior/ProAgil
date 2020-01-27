@@ -1,7 +1,7 @@
 // Módulos
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // Ngx bootstrap
 import {
    BsDropdownModule,
@@ -15,7 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 
 // Serviços
-import { EventoService } from './_services/Evento.service';
+import { EventoService } from './_services/evento/Evento.service';
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -29,6 +29,10 @@ import { TituloComponent } from './_shared/titulo/titulo.component';
 import { DateTimeFormatPipe } from './_helps/DateTimeFormatPipe.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Constants } from './util/Constants';
+import { UserComponent } from './user/user.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegistrationComponent } from './user/registration/registration.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
    declarations: [
@@ -41,7 +45,10 @@ import { Constants } from './util/Constants';
       PalestrantesComponent,
       DashboardComponent,
       ContatosComponent,
-      TituloComponent
+      TituloComponent,
+      UserComponent,
+      LoginComponent,
+      RegistrationComponent
    ],
    imports: [
       BrowserModule,
@@ -54,10 +61,15 @@ import { Constants } from './util/Constants';
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
-      ReactiveFormsModule,
+      ReactiveFormsModule
    ],
    providers: [
-      EventoService
+      EventoService,
+      {
+         provide: HTTP_INTERCEPTORS,
+         useClass: AuthInterceptor,
+         multi: true
+      }
    ],
    bootstrap: [
       AppComponent

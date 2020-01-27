@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { EventoService } from '../_services/Evento.service';
+import { EventoService } from '../_services/evento/Evento.service';
 import { Evento } from '../_models/Evento';
 import { BsModalService } from 'ngx-bootstrap';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
