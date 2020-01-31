@@ -25,19 +25,19 @@
   <table class="table">
     <thead class="thead-light">
       <tr>
-        <th scope="col">
+        <th>
           <button class="btn btn-outline-info"
                   (click)="alternarImagem()">
             <i class="{{!mostrarImagem ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
           </button>
         </th>
-        <th scope="col">#</th>
-        <th scope="col">Tema</th>
-        <th scope="col">Local</th>
-        <th scope="col">Data</th>
-        <th scope="col">Qtde. Pessoas</th>
-        <th scope="col">Lote</th>
-        <th scope="col" colspan="2">Opções</th>
+        <th>#</th>
+        <th>Tema</th>
+        <th>Local</th>
+        <th>Data</th>
+        <th>Qtde. Pessoas</th>
+        <th>Lote</th>
+        <th colspan="2">Opções</th>
       </tr>
     </thead>
     <tbody *ngIf="eventos && this.eventos.length > 0">

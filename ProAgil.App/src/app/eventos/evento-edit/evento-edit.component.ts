@@ -56,10 +56,18 @@ export class EventoEditComponent implements OnInit {
           this.imagemUrl = `http://localhost:5000/Resources/Images/${this.evento.imagemUrl}?_ts=${this.dataAtual}`;
 
           this.evento.imagemUrl = '';
+
+          if (this.evento.redesSociais === null) { this.evento.redesSociais = []; }
+          if (this.evento.lotes === null) { this.evento.lotes = []; }
+
           this.registerForm.patchValue(this.evento);
 
+          console.log(this.evento);
+
+          console.log(this.evento.lotes);
           this.evento.lotes.forEach(lote => {
             this.lotes.push(this.criaLote(lote));
+            console.log(this.lotes);
           });
           this.evento.redesSociais.forEach(redeSocial => {
             this.redesSociais.push(this.criaRedeSocial(redeSocial));
@@ -153,5 +161,4 @@ export class EventoEditComponent implements OnInit {
         );
     }
   }
-
 }
