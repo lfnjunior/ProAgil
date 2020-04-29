@@ -4,7 +4,7 @@
 
 - Clone the repository:
 ```
- git clone https://github.com/lfnjunior/ProAgil-Eventos.git
+ git clone https://github.com/lfnjunior/ProAgil.git
 ```
 
 ######
